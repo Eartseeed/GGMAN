@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="lo">
+<head>
+<meta charset="UTF-8">
+<title>🧾 POS</title>
+
+<!-- MAIN STYLE -->
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="print.css">
+<link rel="stylesheet" href="Phetsarath OT.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#22c55e">
+
+<style>
+@media print {
+  hr {
+    border: none;
+    border-top: 1px dashed #000;
+    margin: 6px 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  img {
+    max-width: 100%;
+  }
+}
+
+/* ปุ่มส่งครัว */
+.pos-btn.kitchen{
+  background:#f97316;
+  color:#fff;
+}
+.pos-btn.kitchen:hover{
+  background:#ea580c;
+}
+</style>
+</head>
+
+<body>
+
+<h2 class="main-title"></h2>
+
+<!-- MEMBER -->
+<div class="member-box modern">
+  <input id="memberName" placeholder="👤 ຊື່ລູກຄ້າ">
+  <input id="memberPhone" placeholder="📞 ເບີໂທ">
+  <input id="discount" type="number" placeholder="💸 ສ່ວນຫຼຸດ %" value="0">
+</div>
+
+<div class="app">
+
+  <!-- LEFT -->
+  <div class="left-panel">
+
+    <!-- CATEGORY + SEARCH -->
+    <div class="category-bar modern" style="display:flex;gap:10px;align-items:center;">
+      <div>
+        <label>📂 ໝວດ</label><br>
+        <select id="categorySelect" onchange="filterProducts()"></select>
+      </div>
+
+      <div style="flex:1">
+        <label>🔍 ຄົ້ນຫາ</label><br>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="ຊື່ເມນູ"
+          oninput="filterProducts()"
+          style="width:100%;padding:8px;border-radius:10px;border:1px solid #e5e7eb;">
+      </div>
+    </div>
+
+    <!-- MENU GRID -->
+    <div class="menu" id="menu"></div>
+
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right-panel">
+
+<div class="actions-grid modern-grid">
+
+  <button class="pos-btn cat" onclick="location.href='category.html'">
+    📂 ໝວດສິນຄ້າ
+  </button>
+
+  <button class="pos-btn add" onclick="location.href='add-product.html'">
+    ➕ ເພີ່ມເມນູ
+  </button>
+
+  <button class="pos-btn manage" onclick="location.href='manage.html'">
+    ⚙️ ຈັດການເມນູ
+  </button>
+
+  <button class="pos-btn report" onclick="location.href='report.html'">
+    📊 ລາຍງານ
+  </button>
+
+  <button class="pos-btn setting" onclick="location.href='shop-setting.html'">
+    🏪 ຕັ້ງຄ່າຮ້ານ
+  </button>
+
+  <button class="print-btn" onclick="printAndClear()">
+    🧾 ພິມບິນ
+  </button>
+
+  <!-- NEW : SEND TO KITCHEN -->
+  <button class="pos-btn kitchen" onclick="printKitchen()">
+    🍳 ສົ່ງບິນເຂົ້າຄົວ
+  </button>
+
+</div>
+
+    <!-- RECEIPT -->
+    <div id="receipt" class="receipt-card">
+      <center>
+        <img id="shopLogo" class="logo">
+        <b id="shopName"></b><br>
+        <span id="shopPhone"></span>
+      </center>
+
+      <hr>
+      <div id="time"></div>
+      <hr>
+      <div id="items"></div>
+      <hr>
+      <b id="total">ລວມ: 0 ກີບ</b>
+    </div>
+
+  </div>
+</div>
+
+<!-- PRINT AREA -->
+<div id="printArea" class="print-area">
+  <img id="printLogo" class="print-logo">
+  <h3 id="printShopName" style="text-align:center;margin:0;"></h3>
+  <div id="printDate" style="text-align:center;"></div>
+
+  <div class="print-divider"></div>
+
+  <table class="print-table">
+    <tbody id="printItems"></tbody>
+  </table>
+
+  <div class="print-divider"></div>
+</div>
+
+<script src="app.js"></script>
+<script src="print.js"></script>
+
+<script>
+const shop = JSON.parse(localStorage.getItem("SHOP_INFO") || "{}");
+shop.name ||= "ຮ້ານຂອງຂ້ອຍ";
+
+document.getElementById("shopName").innerText = shop.name;
+document.getElementById("shopPhone").innerText = shop.phone || "";
+document.getElementById("shopLogo").src = shop.logo || "logo.png";
+
+</script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("service-worker.js");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1858 @@
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  background:#f1f5f9;
+  font-family:"Segoe UI",sans-serif;
+}
+
+h2{
+  margin:0;
+  padding:14px;
+  background:#1e293b;
+  color:white;
+  text-align:center;
+}
+
+/* MEMBER */
+.member-box{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:8px;
+  padding:10px;
+  background:white;
+}
+
+/* ADD PRODUCT */
+.add-product{
+  display:grid;
+  grid-template-columns:2fr 1fr 2fr 1fr;
+  gap:8px;
+  padding:10px;
+  margin:10px;
+  background:white;
+  border-radius:8px;
+}
+
+.add-product input{
+  padding:8px;
+}
+
+.add-product button{
+  background:#22c55e;
+  color:white;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+/* LAYOUT */
+.app{
+  display:grid;
+  grid-template-columns:1fr 340px;
+  gap:10px;
+  padding:10px;
+}
+
+/* =========================
+   MENU GRID : 8 ITEMS / ROW
+========================= */
+
+.menu{
+  display:grid;
+  grid-template-columns:repeat(8, 1fr);   /* ✅ 8 เมนูต่อแถว */
+  gap:12px;
+}
+
+/* ✅ บังคับการ์ดสูงเท่ากัน */
+.item{
+  background:white;
+  border-radius:12px;
+  padding:8px;
+  display:flex;
+  flex-direction:column;
+  height:260px;               /* <<< ความสูงเท่ากันทุกใบ */
+  box-shadow:0 2px 6px rgba(0,0,0,.08);
+}
+
+/* พื้นที่รูป */
+.photo{
+  position:relative;
+  height:140px;              /* <<< รูปสูงเท่ากัน */
+  flex-shrink:0;
+}
+
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:contain;        /* ไม่ยืด ไม่แตก */
+  border-radius:8px;
+}
+
+/* ปุ่ม + - */
+.controls{
+  position:absolute;
+  right:6px;
+  bottom:6px;
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+
+.controls button{
+  width:28px;
+  height:28px;
+  border:none;
+  border-radius:6px;
+  color:white;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.plus{background:#22c55e;}
+.minus{background:#ef4444;}
+
+/* ชื่อสินค้า */
+.item b{
+  margin-top:6px;
+  font-size:15px;
+  text-align:center;
+  min-height:40px;           /* <<< ล็อคความสูงชื่อ */
+  overflow:hidden;
+}
+
+/* ราคา */
+.item .price{
+  text-align:center;
+  font-size:14px;
+}
+
+/* ราคาเงินกีบ */
+.item .kip{
+  font-size:12px;
+  color:#64748b;
+  text-align:center;
+}
+
+/* ================= ACTIONS ================= */
+
+.actions{
+  margin-top:10px;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:10px;
+}
+
+.actions button{
+  padding:12px;
+  border:none;
+  border-radius:8px;
+  color:white;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.print{background:#2563eb;}
+.kitchen{background:#f97316;}
+.report-btn{background:#16a34a;}
+.manage-btn{
+  background: linear-gradient(135deg,#8b5cf6,#6366f1);
+}
+
+/* ================= RECEIPT ================= */
+
+#receipt{
+  background:white;
+  border-radius:12px;
+  padding:12px;
+}
+
+.logo{
+  width:100px;
+}
+/* ================= Manage ================= */
+.danger {
+  background:red;
+  color:white;
+  border:none;
+  padding:5px 10px;
+  border-radius:5px;
+  cursor:pointer;
+}
+/**********************
+ REPORT PAGE STYLE
+**********************/
+
+.report-toolbar{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  align-items:center;
+  padding:12px;
+  background:white;
+  border-radius:10px;
+  margin:12px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.05);
+}
+
+.filter{
+  display:flex;
+  flex-direction:column;
+  font-size:12px;
+}
+
+.filter input{
+  padding:6px 10px;
+  border-radius:6px;
+  border:1px solid #ccc;
+}
+
+/* BUTTON */
+.btn{
+  padding:10px 16px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+  transition:0.2s;
+}
+
+.btn:hover{
+  opacity:0.9;
+  transform:translateY(-1px);
+}
+
+.btn.back{
+  background:#334155;
+  color:white;
+}
+
+.btn.primary{
+  background:#2563eb;
+  color:white;
+}
+
+.btn.success{
+  background:#16a34a;
+  color:white;
+}
+
+/* REPORT TABLE */
+.report-box{
+  background:white;
+  margin:12px;
+  border-radius:12px;
+  padding:12px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.05);
+}
+
+.report-table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.report-table th{
+  background:#f1f5f9;
+  text-align:left;
+  padding:10px;
+  font-size:14px;
+}
+
+.report-table td{
+  padding:10px;
+  border-bottom:1px solid #e5e7eb;
+  font-size:14px;
+}
+
+.report-table tr:hover{
+  background:#f8fafc;
+}
+
+.report-total{
+  text-align:right;
+  margin-top:12px;
+  font-weight:bold;
+  font-size:16px;
+  color:#0f172a;
+}
+/* =========================
+   ACTION BUTTON SIZE FIX
+========================= */
+
+/* ให้ panel ขวากว้างเต็ม */
+.right-panel{
+  width:100%;
+}
+
+/* Grid ปุ่ม */
+.actions-grid{
+  width:100%;
+  display:grid;
+  grid-template-columns:1fr 1fr;   /* 2 ปุ่มต่อแถว */
+  gap:12px;
+}
+
+/* ขนาดปุ่มให้ใหญ่เท่ากัน */
+.actions-grid button{
+  width:100%;
+  height:60px;                     /* ✅ ปรับความสูง */
+  font-size:16px;                  /* ✅ ตัวอักษรใหญ่ขึ้น */
+  border-radius:12px;
+}
+
+/* ไม่ต้องให้ปุ่มสุดท้ายเต็มแถว */
+.actions-grid button:last-child{
+  grid-column:auto;
+}
+/* ===============================
+   ADMIN PAGE UI (Manage / Category / Add)
+================================ */
+
+.admin-container{
+  max-width:1100px;
+  margin:16px auto;
+  padding:12px;
+}
+
+.admin-card{
+  background:white;
+  border-radius:14px;
+  padding:14px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.06);
+  margin-bottom:14px;
+}
+
+.admin-title{
+  font-weight:700;
+  margin-bottom:10px;
+  color:#0f172a;
+}
+
+/* toolbar */
+.admin-toolbar{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  align-items:center;
+  margin-bottom:10px;
+}
+
+.admin-toolbar button{
+  padding:10px 14px;
+  border-radius:10px;
+  border:none;
+  cursor:pointer;
+  font-weight:600;
+  background:#334155;
+  color:white;
+}
+
+/* form grid */
+.form-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:10px;
+}
+
+.form-grid input,
+.form-grid select{
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #e5e7eb;
+}
+
+/* primary button */
+.btn-main{
+  background:linear-gradient(135deg,#22c55e,#16a34a);
+  color:white;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:700;
+}
+
+/* category list */
+.category-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  gap:12px;
+}
+
+.category-item{
+  background:#f8fafc;
+  border-radius:12px;
+  padding:12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:6px;
+}
+
+.category-item input{
+  border:none;
+  background:transparent;
+  font-weight:600;
+  width:100%;
+}
+
+.category-item button{
+  border:none;
+  background:#ef4444;
+  color:white;
+  border-radius:6px;
+  cursor:pointer;
+  padding:4px 8px;
+}
+/* ==================================================
+   MODERN POS THEME (ADMIN UI)
+================================================== */
+
+:root{
+  --main:#22c55e;
+  --main-dark:#16a34a;
+  --blue:#3b82f6;
+  --orange:#f97316;
+  --red:#ef4444;
+  --dark:#0f172a;
+}
+
+.admin-container{
+  max-width:1200px;
+  margin:20px auto;
+  padding:10px;
+}
+
+.admin-card{
+  background:linear-gradient(180deg,#ffffff,#f8fafc);
+  border-radius:18px;
+  padding:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  margin-bottom:16px;
+}
+
+.admin-title{
+  font-size:18px;
+  font-weight:800;
+  margin-bottom:12px;
+  color:var(--dark);
+}
+
+/* toolbar */
+.admin-toolbar{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  align-items:center;
+}
+
+.admin-toolbar input{
+  padding:10px 14px;
+  border-radius:12px;
+  border:1px solid #e5e7eb;
+  flex:1;
+}
+
+/* buttons */
+.btn-main{
+  background:linear-gradient(135deg,var(--main),var(--main-dark));
+  color:white;
+  border:none;
+  border-radius:12px;
+  padding:10px 18px;
+  cursor:pointer;
+  font-weight:700;
+  transition:.2s;
+}
+
+.btn-main:hover{
+  transform:translateY(-2px) scale(1.02);
+  box-shadow:0 6px 12px rgba(0,0,0,.15);
+}
+
+.btn-back{
+  background:linear-gradient(135deg,#475569,#1e293b);
+  color:white;
+  border:none;
+  border-radius:12px;
+  padding:10px 18px;
+  cursor:pointer;
+}
+
+/* form */
+.form-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:12px;
+}
+
+.form-grid input,
+.form-grid select{
+  padding:12px;
+  border-radius:12px;
+  border:1px solid #e5e7eb;
+  font-size:14px;
+}
+
+/* category */
+.category-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+  gap:14px;
+  margin-top:12px;
+}
+
+.category-item{
+  background:white;
+  border-radius:14px;
+  padding:12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 4px 10px rgba(0,0,0,.05);
+  transition:.2s;
+}
+
+.category-item:hover{
+  transform:translateY(-2px);
+}
+
+.category-item input{
+  border:none;
+  font-weight:700;
+  font-size:15px;
+  width:100%;
+  outline:none;
+}
+
+.category-item button{
+  background:var(--red);
+  color:white;
+  border:none;
+  border-radius:8px;
+  padding:6px 10px;
+  cursor:pointer;
+}
+
+/* manage product card */
+.manage-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:14px;
+}
+
+.manage-card{
+  background:white;
+  border-radius:16px;
+  padding:12px;
+  display:flex;
+  flex-direction:column;
+  box-shadow:0 4px 12px rgba(0,0,0,.06);
+  transition:.2s;
+}
+
+.manage-card:hover{
+  transform:translateY(-4px);
+}
+
+.manage-card img{
+  width:100%;
+  height:140px;
+  object-fit:contain;
+  border-radius:12px;
+  background:#f1f5f9;
+}
+
+.manage-card input,
+.manage-card select{
+  margin-top:6px;
+  padding:6px 8px;
+  border-radius:8px;
+  border:1px solid #e5e7eb;
+}
+
+.manage-card .danger{
+  margin-top:auto;
+  background:linear-gradient(135deg,#ef4444,#dc2626);
+  border:none;
+  border-radius:10px;
+  color:white;
+  padding:8px;
+  cursor:pointer;
+}
+/* =========================
+   MANAGE PAGE PRO STYLE
+========================= */
+
+.admin-toolbar-modern{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  padding:14px;
+  margin:12px;
+  background:linear-gradient(135deg,#6366f1,#8b5cf6);
+  border-radius:16px;
+  box-shadow:0 6px 18px rgba(0,0,0,.12);
+  align-items:center;
+}
+
+.rate-box{
+  background:white;
+  padding:8px 12px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-size:14px;
+}
+
+.rate-box input{
+  width:90px;
+  padding:4px 6px;
+  border-radius:6px;
+  border:1px solid #ddd;
+}
+
+.btn-save{
+  background:#22c55e;
+  border:none;
+  color:white;
+  padding:6px 12px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.btn-back{
+  background:#0f172a;
+  color:white;
+  border:none;
+  padding:10px 14px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.btn-category{
+  background:linear-gradient(135deg,#f97316,#fb923c);
+  color:white;
+  border:none;
+  padding:10px 14px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+/* GRID */
+.manage-grid{
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+}
+
+/* CARD */
+.manage-card{
+  background:white;
+  border-radius:18px;
+  padding:12px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  box-shadow:0 6px 16px rgba(0,0,0,.08);
+  transition:.2s;
+}
+
+.manage-card:hover{
+  transform:translateY(-3px);
+}
+
+.manage-photo{
+  height:140px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.manage-photo img{
+  max-height:100%;
+  max-width:100%;
+  object-fit:contain;
+}
+
+.manage-card label{
+  font-size:12px;
+  opacity:.7;
+}
+
+.manage-card input,
+.manage-card select{
+  padding:6px;
+  border-radius:8px;
+  border:1px solid #ddd;
+}
+
+.kip-label{
+  font-size:12px;
+  color:#64748b;
+  text-align:center;
+}
+
+.btn-delete{
+  margin-top:auto;
+  background:linear-gradient(135deg,#ef4444,#dc2626);
+  color:white;
+  border:none;
+  border-radius:10px;
+  padding:8px;
+  cursor:pointer;
+}
+/* =========================
+   REPORT DASHBOARD STYLE
+========================= */
+
+.report-header{
+  background:linear-gradient(135deg,#6366f1,#22c55e);
+}
+
+/* toolbar */
+.modern-toolbar{
+  border-radius:18px;
+  background:linear-gradient(135deg,#0f172a,#1e293b);
+}
+
+.modern-toolbar .card{
+  background:white;
+  padding:8px 12px;
+  border-radius:12px;
+}
+
+.btn.big{
+  height:52px;
+  font-size:15px;
+}
+
+/* dashboard */
+.report-dashboard{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:16px;
+  padding:12px;
+}
+
+.dash-card{
+  background:white;
+  border-radius:18px;
+  padding:14px;
+  box-shadow:0 10px 22px rgba(0,0,0,.08);
+}
+
+.dash-card h3{
+  margin-top:0;
+}
+
+/* summary */
+.summary-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+  gap:10px;
+}
+
+.summary-card{
+  background:linear-gradient(135deg,#6366f1,#818cf8);
+  color:white;
+  padding:12px;
+  border-radius:12px;
+  text-align:center;
+  box-shadow:0 6px 12px rgba(0,0,0,.12);
+}
+
+.summary-card.blue{
+  background:linear-gradient(135deg,#0ea5e9,#38bdf8);
+}
+
+.summary-card.green{
+  background:linear-gradient(135deg,#22c55e,#4ade80);
+}
+
+/* table */
+.modern-table{
+  margin-top:6px;
+}
+/* ===============================
+   🌈 MODERN POS THEME (INDEX)
+=============================== */
+
+/* HEADER */
+h2{
+  background:linear-gradient(135deg,#6366f1,#22c55e);
+  font-size:22px;
+  letter-spacing:.5px;
+  box-shadow:0 4px 14px rgba(0,0,0,.25);
+}
+
+/* MEMBER BAR */
+.member-box{
+  border-radius:0 0 16px 16px;
+  box-shadow:0 4px 10px rgba(0,0,0,.08);
+}
+
+.member-box input{
+  border-radius:10px;
+  border:1px solid #e5e7eb;
+  padding:10px;
+  font-size:14px;
+}
+
+/* CATEGORY BAR */
+.category-bar{
+  background:white;
+  padding:10px;
+  border-radius:14px;
+  box-shadow:0 4px 10px rgba(0,0,0,.06);
+  margin-bottom:10px;
+}
+
+.category-bar select{
+  width:240px;
+  padding:8px 12px;
+  border-radius:10px;
+  border:1px solid #e5e7eb;
+  font-weight:600;
+}
+
+/* MENU GRID */
+.menu{
+  gap:14px;
+}
+
+/* PRODUCT CARD */
+.item{
+  border-radius:18px;
+  transition:.25s;
+  background:linear-gradient(180deg,#ffffff,#f8fafc);
+}
+
+.item:hover{
+  transform:translateY(-4px) scale(1.02);
+  box-shadow:0 10px 22px rgba(0,0,0,.15);
+}
+
+/* IMAGE */
+.photo{
+  background:#f1f5f9;
+  border-radius:12px;
+  padding:6px;
+}
+
+/* NAME */
+.item b{
+  font-size:15px;
+  color:#0f172a;
+}
+
+/* PRICE */
+.item .price{
+  font-weight:700;
+  color:#16a34a;
+}
+
+/* KIP */
+.item .kip{
+  font-size:12px;
+  opacity:.8;
+}
+
+/* PLUS / MINUS */
+.controls button{
+  transition:.15s;
+}
+
+.controls button:hover{
+  transform:scale(1.12);
+  filter:brightness(1.1);
+}
+
+/* RIGHT PANEL */
+.right-panel{
+  background:linear-gradient(180deg,#f8fafc,#f1f5f9);
+  border-radius:18px;
+  padding:10px;
+}
+
+/* ACTION BUTTON GRID */
+.actions-grid{
+  gap:14px;
+}
+
+.actions-grid button{
+  font-size:16px;
+  font-weight:700;
+  letter-spacing:.3px;
+  box-shadow:0 6px 14px rgba(0,0,0,.18);
+  transition:.2s;
+}
+
+.actions-grid button:hover{
+  transform:translateY(-2px) scale(1.03);
+  filter:brightness(1.05);
+}
+
+/* BUTTON COLORS */
+.manage-btn{
+  background:linear-gradient(135deg,#6366f1,#8b5cf6);
+}
+
+.report-btn{
+  background:linear-gradient(135deg,#22c55e,#4ade80);
+}
+
+.print{
+  background:linear-gradient(135deg,#2563eb,#3b82f6);
+}
+
+.kitchen{
+  background:linear-gradient(135deg,#f97316,#fb923c);
+}
+
+/* RECEIPT */
+#receipt{
+  margin-top:12px;
+  border-radius:18px;
+  box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+
+#receipt b{
+  font-size:16px;
+}
+
+/* RECEIPT ITEMS */
+#items div{
+  border-bottom:1px dashed #e5e7eb;
+  padding:4px 0;
+}
+
+/* LOGO */
+.logo{
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,.2));
+}
+
+/* SCROLLBAR (Chrome) */
+::-webkit-scrollbar{
+  width:8px;
+}
+::-webkit-scrollbar-thumb{
+  background:#cbd5f5;
+  border-radius:10px;
+}
+/* =========================
+   BADGE COUNT
+========================= */
+
+.badge{
+  position:absolute;
+  top:6px;
+  left:6px;
+  background:linear-gradient(135deg,#ef4444,#dc2626);
+  color:white;
+  font-size:12px;
+  font-weight:800;
+  min-width:22px;
+  height:22px;
+  padding:0 6px;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 2px 6px rgba(0,0,0,.25);
+  pointer-events:none;
+}
+
+.badge.hide{
+  display:none;
+}
+.stock-btn{
+  background: linear-gradient(135deg,#6366f1,#22d3ee);
+  color:#fff;
+}
+.stock-btn:hover{
+  transform: scale(1.05);
+}
+/* ===============================
+   ✨ UI UPGRADE : TEXT + BUTTON + POS FEEL
+=============================== */
+
+/* อ่านง่ายขึ้นทุกจุด */
+body{
+  font-size:14px;
+  line-height:1.45;
+  letter-spacing:0.2px;
+  color:#0f172a;
+}
+
+/* ป้องกันตัวหนังสือล้นกรอบ */
+.item b,
+.item .price,
+.item .kip,
+small{
+  word-break:break-word;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+/* ชื่อสินค้า – ไม่ล้น + center */
+.item b{
+  padding:0 4px;
+  text-align:center;
+}
+
+/* ราคา */
+.item .price{
+  margin-top:2px;
+}
+
+/* stock label */
+.item small{
+  font-size:12px;
+  margin-top:2px;
+}
+
+/* ===============================
+   🎯 PRODUCT CARD SPACING
+=============================== */
+
+.item{
+  padding:10px;
+}
+
+.photo{
+  padding:8px;
+}
+
+/* ===============================
+   ➕➖ PROFESSIONAL BUTTON
+=============================== */
+
+.controls{
+  right:8px;
+  bottom:8px;
+  gap:6px;
+}
+
+/* ปุ่มใหญ่ กดง่าย */
+.controls button{
+  width:36px;
+  height:36px;
+  border-radius:10px;
+  font-size:18px;
+  font-weight:900;
+  box-shadow:0 4px 10px rgba(0,0,0,.25);
+  transition:0.15s ease;
+}
+
+/* เอฟเฟกต์ hover */
+.controls button:hover{
+  transform:scale(1.12);
+  filter:brightness(1.1);
+}
+
+/* เอฟเฟกต์กด */
+.controls button:active{
+  transform:scale(0.95);
+}
+
+/* + ปุ่ม */
+.plus{
+  background:linear-gradient(135deg,#22c55e,#4ade80);
+}
+
+/* - ปุ่ม */
+.minus{
+  background:linear-gradient(135deg,#ef4444,#fb7185);
+}
+
+/* ===============================
+   💳 RECEIPT READABILITY
+=============================== */
+
+#receipt{
+  font-size:14px;
+}
+
+#items div{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+
+/* ===============================
+   🧩 BUTTON PANEL BALANCE
+=============================== */
+
+.actions-grid button{
+  font-size:15px;
+  letter-spacing:.3px;
+}
+
+/* ===============================
+   🌟 MICRO ANIMATION (FEEL PREMIUM)
+=============================== */
+
+.item{
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+
+.item:hover{
+  transform:translateY(-3px) scale(1.02);
+  box-shadow:0 12px 22px rgba(0,0,0,.18);
+}
+/* ===============================
+   📏 MENU CARD FULL HEIGHT
+=============================== */
+
+/* ให้ grid ยืดความสูงอัตโนมัติ */
+.menu{
+  align-items:stretch;
+}
+
+/* การ์ดสูงเต็มพื้นที่ */
+.item{
+  min-height:340px;              /* <<< ปรับได้ตามใจ */
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+/* ระยะห่างตัวหนังสือในเมนู */
+.item {
+  line-height: 1.5;
+}
+
+.item .menu-name {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.item .barcode,
+.item .price,
+.item .category,
+.item .stock {
+  margin-top: 4px;
+}
+/* ===============================
+   🔼 MOVE TEXT UP UNDER MENU NAME
+=============================== */
+
+/* ลดความสูงบังคับของชื่อสินค้า */
+.item b{
+  min-height: 26px;        /* เดิม 40px → ลดลง */
+  margin-bottom: 2px;     /* ให้ชิดข้อความด้านล่าง */
+}
+
+/* ดึงข้อความใต้ชื่อให้ชิดขึ้น */
+.item .barcode,
+.item .price,
+.item .kip,
+.item small{
+  margin-top: 2px;        /* เดิม 4–6px */
+  line-height: 1.2;
+}
+
+/* ลดช่องว่างรวมในการ์ด */
+.item{
+  row-gap: 4px;
+}
+/* ===============================
+   🔍 SEARCH + CATEGORY BAR PRO UI
+=============================== */
+
+.category-bar{
+  display:flex;
+  gap:14px;
+  align-items:flex-end;
+  padding:14px;
+  background:linear-gradient(135deg,#ffffff,#f8fafc);
+  border-radius:16px;
+  box-shadow:0 6px 16px rgba(0,0,0,.08);
+}
+
+.filter-group,
+.search-group{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+
+.filter-group label,
+.search-group label{
+  font-size:12px;
+  font-weight:700;
+  color:#334155;
+}
+
+/* dropdown */
+#categorySelect{
+  min-width:200px;
+  padding:10px 14px;
+  border-radius:12px;
+  border:1px solid #e5e7eb;
+  font-weight:600;
+  background:white;
+  cursor:pointer;
+}
+
+/* search input */
+#searchInput{
+  min-width:260px;
+  padding:10px 14px;
+  border-radius:12px;
+  border:1px solid #e5e7eb;
+  font-size:14px;
+  transition:.2s;
+}
+
+#searchInput:focus{
+  outline:none;
+  border-color:#22c55e;
+  box-shadow:0 0 0 3px rgba(34,197,94,.15);
+}
+
+/* hover effect */
+#categorySelect:hover,
+#searchInput:hover{
+  border-color:#94a3b8;
+}
+
+/* responsive */
+@media(max-width:900px){
+  .category-bar{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  #categorySelect,
+  #searchInput{
+    width:100%;
+  }
+}
+/* =====================
+  MENU BARCODE FIX
+===================== */
+
+.menu-barcode {
+  font-size: 12px;
+  color: #475569;
+  margin-top: 2px;
+  margin-bottom: 4px;
+  font-weight: 500;
+  text-align: center;
+  word-break: break-all;
+}
+
+.menu-price {
+  font-size: 15px;
+  font-weight: 700;
+  color: #16a34a;
+  margin-top: 4px;
+  text-align: center;
+}
+
+.menu-stock {
+  display: block;
+  text-align: center;
+  margin-top: 2px;
+}
+
+/* ป้องกันโดนซ่อน */
+.item {
+  overflow: visible;
+}
+/* ===============================
+   🧾 PRINT BILL – 5 STAR STYLE
+=============================== */
+.print-btn{
+  background: linear-gradient(135deg,#2563eb,#1e40af);
+  color:white;
+  border:none;
+  border-radius:16px;
+  height:64px;
+  font-size:16px;
+  font-weight:800;
+  letter-spacing:.4px;
+  box-shadow:
+    0 8px 20px rgba(37,99,235,.45),
+    inset 0 1px 0 rgba(255,255,255,.25);
+  position:relative;
+  overflow:hidden;
+  transition:.25s ease;
+}
+
+/* shine effect */
+.print-btn::after{
+  content:"";
+  position:absolute;
+  top:-50%;
+  left:-60%;
+  width:40%;
+  height:200%;
+  background:linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,.4),
+    transparent
+  );
+  transform:rotate(20deg);
+  transition:.6s;
+}
+
+.print-btn:hover::after{
+  left:120%;
+}
+
+.print-btn:hover{
+  transform:translateY(-3px) scale(1.03);
+  box-shadow:0 14px 30px rgba(37,99,235,.6);
+}
+
+.print-btn:active{
+  transform:scale(.96);
+}
+/* ===============================
+   🍳 KITCHEN BILL – 5 STAR STYLE
+=============================== */
+.kitchen-btn{
+  background: linear-gradient(135deg,#f97316,#ea580c);
+  color:white;
+  border:none;
+  border-radius:16px;
+  height:64px;
+  font-size:16px;
+  font-weight:800;
+  letter-spacing:.4px;
+  box-shadow:
+    0 8px 20px rgba(249,115,22,.45),
+    inset 0 1px 0 rgba(255,255,255,.25);
+  position:relative;
+  overflow:hidden;
+  transition:.25s ease;
+}
+
+/* glow border */
+.kitchen-btn::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:16px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.25);
+  pointer-events:none;
+}
+
+.kitchen-btn:hover{
+  transform:translateY(-3px) scale(1.03);
+  box-shadow:0 14px 30px rgba(249,115,22,.6);
+}
+
+.kitchen-btn:active{
+  transform:scale(.96);
+}
+/* ===============================
+   🏪 LOGO + SHOP NAME (VERTICAL)
+=============================== */
+
+/* กล่องหัวบิล */
+#receipt center{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+}
+
+/* โลโก้ */
+#receipt .logo{
+  display:block;
+  margin:0 auto;
+}
+
+/* ชื่อร้าน */
+#shopName{
+  display:block;
+  margin-top:2px;
+  font-size:16px;
+  font-weight:800;
+  text-align:center;
+  line-height:1.3;
+}
+
+/* เบอร์โทร */
+#shopPhone{
+  display:block;
+  font-size:13px;
+  opacity:.8;
+  text-align:center;
+}
+/* ===============================
+   ✅ POS OVERRIDE – CLEAN & LUXURY
+   ไม่กะทบระบบเดิม
+=============================== */
+
+/* -------------------------------
+   GLOBAL
+-------------------------------- */
+body{
+  font-size:14px;
+  line-height:1.45;
+  color:#0f172a;
+}
+
+/* -------------------------------
+   HEADER
+-------------------------------- */
+h2{
+  background:linear-gradient(135deg,#6366f1,#22c55e);
+  font-size:22px;
+  letter-spacing:.4px;
+  box-shadow:0 4px 14px rgba(0,0,0,.25);
+}
+
+/* -------------------------------
+   MEMBER BAR
+-------------------------------- */
+.member-box{
+  border-radius:0 0 16px 16px;
+  box-shadow:0 4px 10px rgba(0,0,0,.08);
+}
+
+.member-box input{
+  border-radius:10px;
+  padding:10px;
+  border:1px solid #e5e7eb;
+}
+
+/* -------------------------------
+   CATEGORY + SEARCH
+-------------------------------- */
+.category-bar{
+  background:linear-gradient(135deg,#ffffff,#f8fafc);
+  padding:14px;
+  border-radius:16px;
+  box-shadow:0 6px 16px rgba(0,0,0,.08);
+}
+
+#categorySelect,
+#searchInput{
+  padding:10px 14px;
+  border-radius:12px;
+  border:1px solid #e5e7eb;
+  font-weight:600;
+}
+
+#searchInput:focus{
+  outline:none;
+  border-color:#22c55e;
+  box-shadow:0 0 0 3px rgba(34,197,94,.15);
+}
+
+/* -------------------------------
+   MENU GRID
+-------------------------------- */
+.menu{
+  gap:14px;
+  align-items:stretch;
+}
+
+/* -------------------------------
+   PRODUCT CARD
+-------------------------------- */
+.item{
+  background:linear-gradient(180deg,#ffffff,#f8fafc);
+  border-radius:18px;
+  padding:10px;
+  min-height:320px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  transition:.25s;
+}
+
+.item:hover{
+  transform:translateY(-3px) scale(1.02);
+  box-shadow:0 12px 22px rgba(0,0,0,.18);
+}
+
+/* IMAGE */
+.photo{
+  background:#f1f5f9;
+  border-radius:12px;
+  padding:8px;
+}
+
+/* NAME */
+.item b{
+  font-size:15px;
+  font-weight:700;
+  text-align:center;
+  min-height:26px;
+  margin-bottom:2px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+/* PRICE */
+.item .price{
+  font-size:15px;
+  font-weight:800;
+  color:#16a34a;
+  text-align:center;
+}
+
+.item .kip{
+  font-size:12px;
+  opacity:.75;
+  text-align:center;
+}
+
+/* -------------------------------
+   + / - BUTTON
+-------------------------------- */
+.controls{
+  right:8px;
+  bottom:8px;
+  gap:6px;
+}
+
+.controls button{
+  width:36px;
+  height:36px;
+  border-radius:10px;
+  font-size:18px;
+  font-weight:900;
+  box-shadow:0 4px 10px rgba(0,0,0,.25);
+  transition:.15s;
+}
+
+.controls button:hover{
+  transform:scale(1.12);
+}
+
+.plus{
+  background:linear-gradient(135deg,#22c55e,#4ade80);
+}
+
+.minus{
+  background:linear-gradient(135deg,#ef4444,#fb7185);
+}
+
+/* -------------------------------
+   RIGHT PANEL
+-------------------------------- */
+.right-panel{
+  background:linear-gradient(180deg,#f8fafc,#f1f5f9);
+  border-radius:18px;
+  padding:10px;
+}
+
+/* -------------------------------
+   ACTION BUTTONS
+-------------------------------- */
+.actions-grid{
+  gap:14px;
+}
+
+.actions-grid button{
+  height:64px;
+  border-radius:16px;
+  font-size:16px;
+  font-weight:800;
+  letter-spacing:.4px;
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
+  transition:.25s;
+}
+
+.actions-grid button:hover{
+  transform:translateY(-3px) scale(1.03);
+}
+
+/* COLORS */
+.manage-btn{
+  background:linear-gradient(135deg,#6366f1,#8b5cf6);
+}
+
+.report-btn{
+  background:linear-gradient(135deg,#22c55e,#4ade80);
+}
+
+.print-btn{
+  background:linear-gradient(135deg,#2563eb,#1e40af);
+}
+
+.kitchen-btn{
+  background:linear-gradient(135deg,#f97316,#ea580c);
+}
+
+/* -------------------------------
+   RECEIPT (SCREEN)
+-------------------------------- */
+#receipt{
+  margin-top:12px;
+  border-radius:18px;
+  padding:12px;
+  box-shadow:0 8px 20px rgba(0,0,0,.12);
+  font-size:14px;
+}
+
+/* LOGO + NAME VERTICAL */
+#receipt center{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+}
+
+#receipt .logo{
+  width:100px;
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,.2));
+}
+
+#shopName{
+  font-size:16px;
+  font-weight:800;
+  text-align:center;
+}
+
+#shopPhone{
+  font-size:13px;
+  opacity:.8;
+}
+
+/* ITEMS */
+#items div{
+  border-bottom:1px dashed #e5e7eb;
+  padding:4px 0;
+}
+/* =====================================
+   ⭐ POS PREMIUM BUTTON – FINE DINING
+   override-safe / พร้อมทับ
+===================================== */
+
+.pos-btn{
+  height:64px;
+  padding:0 22px;
+  border-radius:18px;
+  border:none;
+  color:#fff;
+  font-size:16px;
+  font-weight:800;
+  letter-spacing:.4px;
+  cursor:pointer;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+
+  position:relative;
+  overflow:hidden;
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    filter .25s ease;
+}
+
+/* shine layer */
+.pos-btn::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255,255,255,.25),
+    transparent 70%
+  );
+  transform:translateX(-120%);
+  transition:.6s ease;
+}
+
+.pos-btn:hover::after{
+  transform:translateX(120%);
+}
+
+/* glow border */
+.pos-btn::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:18px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.25);
+  pointer-events:none;
+}
+
+/* hover / active */
+.pos-btn:hover{
+  transform:translateY(-3px) scale(1.04);
+  filter:brightness(1.05);
+}
+
+.pos-btn:active{
+  transform:scale(.96);
+}
+
+/* =====================
+   COLOR THEMES
+===================== */
+
+/* 1️⃣ CATEGORY */
+.pos-btn.cat{
+  background:linear-gradient(135deg,#6366f1,#4338ca);
+  box-shadow:0 10px 26px rgba(99,102,241,.45);
+}
+
+/* 2️⃣ ADD PRODUCT */
+.pos-btn.add{
+  background:linear-gradient(135deg,#22c55e,#15803d);
+  box-shadow:0 10px 26px rgba(34,197,94,.45);
+}
+
+/* 3️⃣ MANAGE */
+.pos-btn.manage{
+  background:linear-gradient(135deg,#f97316,#ea580c);
+  box-shadow:0 10px 26px rgba(249,115,22,.45);
+}
+
+/* 4️⃣ REPORT */
+.pos-btn.report{
+  background:linear-gradient(135deg,#0ea5e9,#0369a1);
+  box-shadow:0 10px 26px rgba(14,165,233,.45);
+}
+
+/* 5️⃣ SHOP SETTING */
+.pos-btn.setting{
+  background:linear-gradient(135deg,#64748b,#334155);
+  box-shadow:0 10px 26px rgba(100,116,139,.45);
+}
+/* ===============================
+   ⭐ PREMIUM POS BUTTON – INLINE TEXT
+=============================== */
+.pos-btn,
+.manage-btn,
+.print-btn,
+.kitchen-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;              /* ระยะ icon ↔ text */
+  white-space: nowrap;   /* ❗ ห้ามขึ้นบรรทัดใหม่ */
+  line-height: 1;
+}
+
+/* icon */
+.pos-btn i,
+.manage-btn i,
+.print-btn i,
+.kitchen-btn i {
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* text */
+.pos-btn span,
+.manage-btn span {
+  font-size: 15px;
+  font-weight: 700;
+}
+.btn{
+  padding:10px 16px;
+  border:none;
+  border-radius:8px;
+  font-size:15px;
+  cursor:pointer;
+  font-weight:600;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  transition:0.2s;
+}
+
+.btn.primary{
+  background:#1e88e5;
+  color:#fff;
+}
+
+.btn.primary:hover{
+  background:#1565c0;
+}
+
+.btn.danger{
+  background:#e53935;
+  color:#fff;
+}
+
+.btn.danger:hover{
+  background:#c62828;
+}
+/* ===== POS BUTTON 5 STAR ===== */
+.btn,
+.stock-btn,
+button{
+  border: none;
+  border-radius: 14px;
+  padding: 12px 18px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+
+  background: linear-gradient(180deg,#ffffff,#f1f5f9);
+  color: #111827;
+
+  box-shadow:
+    0 4px 8px rgba(0,0,0,.12),
+    inset 0 -2px 0 rgba(0,0,0,.08);
+
+  transition: all .15s ease;
+}
+
+/* hover */
+.btn:hover,
+.stock-btn:hover,
+button:hover{
+  transform: translateY(-1px);
+  box-shadow:
+    0 8px 16px rgba(0,0,0,.18),
+    inset 0 -2px 0 rgba(0,0,0,.12);
+}
+
+/* active (กดแล้วรู้สึกจม) */
+.btn:active,
+.stock-btn:active,
+button:active{
+  transform: scale(.96);
+  box-shadow:
+    0 2px 4px rgba(0,0,0,.15),
+    inset 0 2px 6px rgba(0,0,0,.25);
+}
+
+/* ===== สีตามหน้าที่ ===== */
+.btn-danger{
+  background: linear-gradient(180deg,#fee2e2,#fecaca);
+  color:#991b1b;
+}
+
+.btn-warning{
+  background: linear-gradient(180deg,#fef3c7,#fde68a);
+  color:#92400e;
+}
+
+.btn-primary{
+  background: linear-gradient(180deg,#dcfce7,#bbf7d0);
+  color:#166534;
+}
+
+.btn-back{
+  background: linear-gradient(180deg,#e5e7eb,#d1d5db);
+  color:#111827;
+}
+
+/* ===== ปุ่ม +/- stock ===== */
+.stock-btn{
+  min-width:48px;
+  font-size:18px;
+  padding:10px 0;
+}

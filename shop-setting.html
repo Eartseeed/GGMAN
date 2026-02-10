@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="lo">
+<head>
+<meta charset="UTF-8">
+<title>⚙️ ຕັ້ງຄ່າຮ້ານ</title>
+
+<link rel="stylesheet" href="shop-setting.css">
+<link rel="stylesheet" href="Phetsarath OT.css">
+
+<style>
+.preview{
+  margin-top:10px;
+  max-width:220px;
+  border-radius:12px;
+  box-shadow:0 6px 16px rgba(0,0,0,.2);
+}
+</style>
+</head>
+
+<body>
+
+<!-- ปุ่มกลับ -->
+<button class="btn-back" onclick="goHome()">⬅ ໜ້າຫຼັກ</button>
+
+<div class="page">
+  <h2 class="title">⚙️ ຕັ້ງຄ່າຮ້ານ</h2>
+
+  <div class="admin-card">
+
+    <!-- SHOP NAME -->
+    <div class="form-group">
+      <label>🏪 ຊື່ຮ້ານ</label>
+      <input id="shopName" placeholder="ຊື່ຮ້ານ">
+    </div>
+
+    <!-- PHONE -->
+    <div class="form-group">
+      <label>📞 ເບີໂທ</label>
+      <input id="shopPhone" placeholder="020-xxxxxxx">
+    </div>
+
+    <!-- LOGO -->
+    <div class="form-group">
+      <label>🖼 ໂລໂກ້ຮ້ານ</label>
+      <input type="file" id="shopLogo" accept="image/*">
+      <img id="logoPreview" class="preview">
+    </div>
+
+    <button class="btn-save" onclick="saveShop()">💾 ບັນທຶກຂໍ້ມູນ</button>
+
+  </div>
+</div>
+
+<script>
+/* =========================
+   LOAD DATA
+========================= */
+const shop = JSON.parse(localStorage.getItem("SHOP_INFO") || "{}");
+
+if(shop.name)  shopName.value  = shop.name;
+if(shop.phone) shopPhone.value = shop.phone;
+if(shop.logo)  logoPreview.src = shop.logo;
+
+/* =========================
+   SAVE SHOP (NO QR)
+========================= */
+function saveShop(){
+
+  const name  = shopName.value;
+  const phone = shopPhone.value;
+  const logoFile = shopLogo.files[0];
+
+  const data = { name, phone };
+
+  if(logoFile){
+    const r = new FileReader();
+    r.onload = ()=>{
+      data.logo = r.result;
+      localStorage.setItem("SHOP_INFO", JSON.stringify(data));
+      alert("✅ ບັນທຶກສຳເລັດ");
+    };
+    r.readAsDataURL(logoFile);
+  }else{
+    localStorage.setItem("SHOP_INFO", JSON.stringify(data));
+    alert("✅ ບັນທຶກສຳເລັດ");
+  }
+}
+
+/* =========================
+   BACK
+========================= */
+function goHome(){
+  location.href = "index.html";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="lo">
+<head>
+<meta charset="UTF-8">
+<title>➕ ເພີ່ມເມນູ</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="Phetsarath OT.css">
+</head>
+
+<body>
+
+<h2>➕ ເພີ່ມເມນູສິນຄ້າ</h2>
+
+<div class="admin-container">
+
+  <div class="admin-card">
+    <div class="admin-title">📝 ຂໍ້ມູນເມນູ</div>
+
+    <!-- FORM -->
+    <div class="form-grid">
+      <!-- NAME -->
+      <input id="pname" placeholder="ຊື່ສິນຄ້າ">
+
+      <!-- PRICE (KIP) -->
+      <input id="pprice" type="number" placeholder="ລາຄາ (ກີບ)">
+
+      <!-- STOCK -->
+      <input id="pstock" type="number" placeholder="📦 ຈຳນວນ Stock">
+
+      <!-- CATEGORY -->
+      <input id="pcategory" placeholder="📂 ໝວດສິນຄ້າ">
+
+      <!-- IMAGE -->
+      <input type="file" id="pimg" accept="image/*">
+    </div>
+
+    <!-- BUTTON -->
+    <div style="margin-top:16px; display:flex; gap:12px;">
+      <button class="btn-main" onclick="addProduct()">💾 ບັນທຶກ</button>
+      <button class="btn-back" onclick="location.href='index.html'">⬅ ກັບ</button>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+/* =====================
+   ADD PRODUCT (NO BARCODE)
+===================== */
+function addProduct() {
+  const name     = document.getElementById("pname").value.trim();
+  const price    = Number(document.getElementById("pprice").value);
+  const stock    = Number(document.getElementById("pstock").value);
+  const category = document.getElementById("pcategory").value.trim();
+  const file     = document.getElementById("pimg").files[0];
+
+  if (!name || !price || isNaN(stock) || !file) {
+    alert("❗ ກະລຸນາປ້ອນຂໍ້ມູນໃຫ້ຄົບ");
+    return;
+  }
+
+  let products = JSON.parse(localStorage.getItem("products") || "[]");
+
+  // ❌ ກັນຊື່ຊ້ຳ
+  if (products.some(p => p.name === name)) {
+    alert("❗ ຊື່ສິນຄ້ານີ້ມີຢູ່ແລ້ວ");
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = e => {
+    products.push({
+      name,
+      price,        // KIP
+      img: e.target.result,
+      category,
+      stockIn: stock,
+      sold: 0
+    });
+
+    localStorage.setItem("products", JSON.stringify(products));
+    alert("✅ ບັນທຶກສຳເລັດ");
+
+    // Clear form
+    document.getElementById("pname").value = "";
+    document.getElementById("pprice").value = "";
+    document.getElementById("pstock").value = "";
+    document.getElementById("pcategory").value = "";
+    document.getElementById("pimg").value = "";
+  };
+
+  reader.readAsDataURL(file);
+}
+</script>
+
+</body>
+</html>
